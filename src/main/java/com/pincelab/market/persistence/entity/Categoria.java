@@ -1,6 +1,7 @@
 package com.pincelab.market.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -14,6 +15,9 @@ public class Categoria {
     private String descripcion;
 
     private Boolean estado;
+
+    @OneToMany(mappedBy = "categoria") // What is the attribute in Categoria.
+    private List<Producto> productos;
 
     public Integer getIdCategoria() {
         return idCategoria;
